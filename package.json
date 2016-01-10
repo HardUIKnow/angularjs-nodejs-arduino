@@ -1,0 +1,21 @@
+{
+  "name": "testpropre",
+  "version": "1.0.0",
+  "description": "this will install dependancies to test an arduino - node server - angular based client project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harduiknow/web-remote/"
+  },
+  "author": "harduiknow",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "johnny-five": "^0.9.17",
+    "socket.io": "^1.4.3"
+  }
+}
