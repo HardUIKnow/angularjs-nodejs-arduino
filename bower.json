@@ -1,0 +1,25 @@
+{
+  "name": "testpropre",
+  "description": "this will install dependancies to test an arduino - node server - angular based client project",
+  "main": "server.js",
+  "authors": [
+    "harduiknow"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#~1.4.8",
+    "socket.io-client": "~1.4.3",
+    "angular-socket-io": "~0.7.0"
+  }
+}
