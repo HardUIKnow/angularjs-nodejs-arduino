@@ -5,12 +5,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>CODETutorial Mean seed</title>
+  <script src="bower_components/socket.io-client/socket.io.js"></script>
+  <script src="bower_components/angular/angular.js"></script>  
+  <script src="bower_components/angular-socket-io/socket.js"></script>
+  <script src="Scripts\client.js"></script>
+
 </head>  
-<body bgcolor="black" text="white">  
-  <script src="../bower_components/socket.io-client/socket.io.js"></script>
-  <script src="../bower_components/angular/angular.js"></script>  
-  <script src="../bower_components/angular-socket-io/socket.js"></script>
- 
+<body bgcolor="black" text="white"> 
+
     <h1 align="center">{{"Led controller"}}</h1>
   <div ng-controller="ArduController" align="center">
     <table>
@@ -33,79 +35,7 @@
           </tbody>
         </table>
     <p ng-model="value"><b>Pot value = {{(value/1023)*100 | number:1}} %</b></p>
-  </div>
- 
-<script type="text/javascript">  
-    var app = angular.module('myApp', ['btford.socket-io'])
-    .factory('socketio', ['$rootScope', function ($rootScope) {
-  var socket = io.connect();
-  return {
-    on: function (eventName, callback) {
-      socket.on(eventName, function () {  
-        var args = arguments;
-        $rootScope.$apply(function () {
-          callback.apply(socket, args);
-        });
-      });
-    },
-    emit: function (eventName, data, callback) {
-      socket.emit(eventName, data, function () {
-        var args = arguments;
-        $rootScope.$apply(function () {
-          if (callback) {
-            callback.apply(socket, args);
-          }
-        });
-      })
-    }
-  };
-}])
-    .controller('ArduController', ['$scope', 'socketio', function ($scope,socketio) {
-    
-            var lights = [          
-            {id:'1', name:"Led1", status:"off"},
-            {id:'2', name:"Led2", status:"off"},
-            {id:'3', name:"Led3", status:"off"},
-            {id:'4', name:"Led4", status:"off"}
-            ];
-    
-            $scope.lights = lights;
-    
-            $scope.lightstatusOn = function(light){
-              light.status = "on";
-              socketio.emit('led:on', light.name); 
-                              console.log(light);
-   
-            };
-    
-            $scope.lightstatusOff = function(light){
-              light.status = "off";
-              socketio.emit('led:off', light.name);
-            };
-    
-            socketio.on('potentiometer', function(data){
-                $scope.value = data.value;
-            });
-
-            socketio.on('led:on', function(data){
-                $scope.lights.push({
-                  name:data.value,
-                  status: "on"
-                })
-                //console.log(data.value.name);
-
-            });
-
-            socketio.on('led:off', function(data){
-                $scope.lights.push({
-                  name:data.value,
-                  status: "off"
-                })
-            });
-       
-    }]);
- 
-</script>  
+  </div> 
 </body>
  
  
