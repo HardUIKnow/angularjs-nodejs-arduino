@@ -4,18 +4,18 @@
 <head>  
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CODETutorial Mean seed</title>
+  <title>Arduino Control Center</title>
   <script src="bower_components/socket.io-client/socket.io.js"></script>
   <script src="bower_components/angular/angular.js"></script>  
   <script src="bower_components/angular-socket-io/socket.js"></script>
   <script src="Scripts\client.js"></script>
 
 </head>  
-<body bgcolor="black" text="white"> 
+<body ng-controller="ArduController" bgcolor="black" text="white"> 
 
-    <h1 align="center">{{"Led controller"}}</h1>
-  <div ng-controller="ArduController" align="center">
-    <table>
+  <div align="center">
+    <h1>{{"Led controller"}}</h1>
+    <table >
           <thead>
             <tr>
               <th>Component</th>
@@ -23,19 +23,35 @@
               <th>On/off</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody align="center">
             <tr ng-repeat="light in lights" >
               <td ng-model="lightname">{{ light.name }}</td>
-              <td ng-model="lightstatus">{{ light.status }}</td>
+              <td ng-model="lightstatus"><font color={{light.color}}>{{ light.status }}</font></td>
               <td>
-                <input type="button" ng-click="lightstatusOn(light)" value="On"> 
-                <input type="button" ng-click="lightstatusOff(light)" value="Off"> 
+                <input type="button" class="btn btn-block btn-lg btn-primary" ng-click="lightstatusOn(light)" value="On"> 
+                <input type="button" class="btn btn-block btn-lg btn-primary" ng-click="lightstatusOff(light)" value="Off"> 
               </td>
             </tr>
           </tbody>
-        </table>
+        </table>        
     <p ng-model="value"><b>Pot value = {{(value/1023)*100 | number:1}} %</b></p>
   </div> 
+  <div align="center">
+    <h1>{{"Button controller"}}</h1>
+    <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody align="center">
+            <tr ng-repeat="button in buttons" >
+              <td ng-model="buttonname">{{ button.name }}</td>
+              <td ng-model="buttonstatus">{{ button.status }}</td>             
+            </tr>
+          </tbody>
+        </table>
 </body>
  
  

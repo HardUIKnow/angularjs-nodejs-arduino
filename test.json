@@ -1,0 +1,27 @@
+{
+	"ledtest":{
+		"Led": {
+			    "Led1":{ "name":"Led1", "status":"off","pin":"10","color":"red"},
+			    "Led2":{ "name":"Led2", "status":"off","pin":"11","color":"red"},
+			    "Led3":{ "name":"Led3", "status":"off","pin":"12","color":"red"},
+			    "Led4":{ "name":"Led4", "status":"off","pin":"13","color":"red"}
+			    },
+		"button": {
+				"button1":{"name":"button1","status":"off","pin":"4","value": "null"},
+				"button2":{"name":"button2","status":"off","pin":"7","value": "null"}		
+				}
+	},
+	"buttontest":{
+		"Led": {          
+	    		"Led1":{ "name":"Led1", "status":"off","pin":"10","color":"red"},
+	    		"Led2":{ "name":"Led2", "status":"off","pin":"11","color":"red"}	    		
+				},
+
+		"button": {
+				"button1":{"name":"button1","status":"off","pin":"2","value": "null"},
+				"button2":{"name":"button2","status":"off","pin":"3","value": "null"},
+				"button3":{"name":"button3","status":"off","pin":"4","value": "null"},
+				"button4":{"name":"button4","status":"off","pin":"5","value": "null"}		
+				}
+	}
+}
